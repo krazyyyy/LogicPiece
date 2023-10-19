@@ -16,8 +16,13 @@ def subscribe(request):
 def contact(request):
     serializer = ContactSerializer(data=request.data)
     if serializer.is_valid():
-        if request.user.is_authenticated and serializer.validated_data['include_user_email']:
-            serializer.validated_data['email'] = request.user.email
-        serializer.save()
+        contact_instance = serializer.save()
+
+        # Save the user's email to the newsletter if requested
+        if serializer.validated_data.get('include_user_email'):
+            newsletter_serializer = NewsletterSubscriptionSerializer(data={'email': serializer.validated_data['email']})
+            if newsletter_serializer.is_valid():
+                newsletter_serializer.save()
+
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
