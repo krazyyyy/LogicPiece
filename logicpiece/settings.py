@@ -127,7 +127,11 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
+# Media root is the absolute filesystem path to the directory that will hold user-uploaded media files.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Media URL is the base URL for serving user-uploaded media files.
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

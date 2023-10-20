@@ -1,8 +1,8 @@
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import NewsletterSubscription, Contact
-from .serializers import NewsletterSubscriptionSerializer, ContactSerializer
+from .models import NewsletterSubscription, Contact, Portfolio
+from .serializers import NewsletterSubscriptionSerializer, PortfolioSerializer, ContactSerializer
 
 @api_view(['POST'])
 def subscribe(request):
@@ -26,3 +26,8 @@ def contact(request):
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PortfolioList(generics.ListAPIView):
+    queryset = Portfolio.objects.all()
+    serializer_class = PortfolioSerializer
