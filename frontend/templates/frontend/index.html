@@ -5,7 +5,20 @@
 {% block body %}
     <div class="container-xxl bg-white p-0">
         {% include "frontend/header.html" %}
-
+        <div class="container-xxl bg-primary hero-header">
+            <div class="container px-lg-5">
+                <div class="row g-5 align-items-end">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h1 class="text-white mb-4 animated slideInDown">Welcome to LogicPiece</h1>
+                        <p class="text-white pb-3 animated slideInDown">Your gateway to innovative web and mobile applications, automation solutions, social media management, and AI services. Unleash the power of technology with LogicPiece.</p>
+                        <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <img class="img-fluid animated zoomIn" src="{%  static 'frontend/img/hero.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Feature Start -->
         <div class="container-xxl py-5">
@@ -289,83 +302,22 @@
         <!-- Newsletter End -->
 
 
-        <!-- Projects Start -->
-        <div class="container-xxl py-5">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Our Projects<span></span></p>
-                    <h1 class="text-center mb-5">Recently Completed Projects</h1>
-                </div>
-                <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="col-12 text-center">
-                        <ul class="list-inline mb-5" id="portfolio-flters">
-                            <li class="mx-2 active" data-filter="*">All</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row g-4 portfolio-container" id="portfolio-container">
-                    <!-- Portfolio entries will be added here using JavaScript -->
-                </div>
-            </div>
-        </div>
-        
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-        <script>
-            $(document).ready(function () {
-                // Fetch portfolio data from the API
-                $.ajax({
-                    url: '/api/portfolio/',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        // Loop through the data and populate your HTML
-                        $.each(data, function (index, portfolio) {
-                            var image = portfolio.images.length > 0 ? portfolio.images[0].image : '';
-                            var portfolioItem = `
-                                <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-delay="0.${index % 3 + 1}s">
-                                    <div class="rounded overflow-hidden">
-                                        <div class="position-relative overflow-hidden">
-                                            <img class="img-fluid w-100" src="${image}" alt="">
-                                            <div class="portfolio-overlay">
-                                                <a class="btn btn-square btn-outline-light mx-1" href="${image}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                                <a class="btn btn-square btn-outline-light mx-1" href="${portfolio.link}" target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light p-4">
-                                            <p class="text-primary fw-medium mb-2">${portfolio.category}</p>
-                                            <h5 class="lh-base mb-0">${portfolio.title}</h5>
-                                        </div>
-                                    </div>
-                                </div>`;
-                            $('#portfolio-container').append(portfolioItem);
-                        });
-                    },
-                    error: function (error) {
-                        console.error('Error fetching portfolio data:', error);
-                    }
-                });
-            });
-        </script>
-        
-        
-        <!-- Projects End -->
 
 
         <!-- Testimonial Start -->
-        <!-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <p class="section-title text-secondary justify-content-center"><span></span>Testimonial<span></span></p>
                 <h1 class="text-center mb-5">What Our Clients Say!</h1>
                 <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-light rounded my-4">
+                   <div class="testimonial-item bg-light rounded my-4">
                         <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>We are incredibly grateful for the exceptional gaming website developed by [Your Name] for TlouEsport. Their expertise and dedication have taken our gaming platform to the next level. The website's design and functionality exceeded our expectations, and it has greatly improved the gaming experience for our users.</p>
                         <div class="ps-4">
                             <h5 class="mb-1">Meshal A. (UK)</h5>
                             <span>Project: Gaming Website for TlouEsport</span>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-light rounded my-4">
+                   <!--   <div class="testimonial-item bg-light rounded my-4">
                         <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i[Your Name] has been a true asset to our music automation project. Their software has significantly reduced our workload and enhanced our music production processes. We appreciate the dedication and skill [Your Name] brought to the table.</p>
                         <div class="ps-4">
                             <h5 class="mb-1">Esther B. (Australia)</h5>
@@ -406,13 +358,74 @@
                             <h5 class="mb-1">Patrick Lenert (Germany)</h5>
                             <span>Project: Development of a cryptocurrency web application, both backend and frontend</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-        </div> -->
+        </div>
              
         <!-- Testimonial End -->
-
+                <!-- Projects Start -->
+                <div class="container-xxl py-5">
+                    <div class="container py-5 px-lg-5">
+                        <div class="wow fadeInUp" data-wow-delay="0.1s">
+                            <p class="section-title text-secondary justify-content-center"><span></span>Our Projects<span></span></p>
+                            <h1 class="text-center mb-5">Recently Completed Projects</h1>
+                        </div>
+                        <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="col-12 text-center">
+                                <ul class="list-inline mb-5" id="portfolio-flters">
+                                    <li class="mx-2 active" data-filter="*">All</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row g-4 portfolio-container" style="padding-bottom: 400px;" id="portfolio-container">
+                            <!-- Portfolio entries will be added here using JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                
+                <script>
+                    $(document).ready(function () {
+                        // Fetch portfolio data from the API
+                        $.ajax({
+                            url: '/api/portfolio/',
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function (data) {
+                                // Loop through the data and populate your HTML
+                                $.each(data, function (index, portfolio) {
+                                    var image = portfolio.images.length > 0 ? portfolio.images[0].image : '';
+                                    var portfolioItem = `
+                                        <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-delay="0.${index % 3 + 1}s">
+                                            <div class="rounded overflow-hidden">
+                                                <div class="position-relative overflow-hidden">
+                                                    <img class="img-fluid w-100" src="${image}" alt="">
+                                                    <div class="portfolio-overlay">
+                                                        <a class="btn btn-square btn-outline-light mx-1" href="${image}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                                        <a class="btn btn-square btn-outline-light mx-1" href="${portfolio.link}" target="_blank"><i class="fa fa-link"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-light p-4">
+                                                    <p class="text-primary fw-medium mb-2">${portfolio.category}</p>
+                                                    <h5 class="lh-base mb-0">${portfolio.title}</h5>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                                    $('#portfolio-container').append(portfolioItem);
+                                });
+                            },
+                            error: function (error) {
+                                console.error('Error fetching portfolio data:', error);
+                            }
+                        });
+                    });
+                </script>
+                
+                
+                <!-- Projects End -->
+        
 
         {% include "frontend/footer.html" %}
 
