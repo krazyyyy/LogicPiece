@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wnoj$lw$3dsnm(4@$w8%kk)w*r_o!1olc!ouknaxm&6!9s9r0('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['logicpiece.com']
 
 
 # Application definition
@@ -124,11 +124,12 @@ if DEBUG:
    STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static'),
    ]
-# else:
-    # STATIC_ROOT = os.path.join(BASE_DIR,'static')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # Media root is the absolute filesystem path to the directory that will hold user-uploaded media files.
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Media URL is the base URL for serving user-uploaded media files.
 MEDIA_URL = '/media/'
