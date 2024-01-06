@@ -21,11 +21,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.urls import re_path as url
+from django.contrib.sitemaps import GenericSitemap 
+from django.contrib.sitemaps.views import sitemap 
+from frontend.views import CustomSitemap
+info_dict = {
+    "queryset" : CustomSitemap,
+}
+
 
 urlpatterns = [
     path("", include("frontend.urls")),
     path("api/", include("api.urls")),
     path('admin/', admin.site.urls),
+    path('sitemap.xml', sitemap, {'sitemaps': info_dict}),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
 ]

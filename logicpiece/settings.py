@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-wnoj$lw$3dsnm(4@$w8%kk)w*r_o!1olc!ouknaxm&6!9s9r0(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['logicpiece.com']
+ALLOWED_HOSTS = ['logicpiece.com', '*']
 
 
 # Application definition
@@ -36,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'rest_framework',
     'api',
     'frontend'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -128,7 +128,7 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # Media root is the absolute filesystem path to the directory that will hold user-uploaded media files.
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Media URL is the base URL for serving user-uploaded media files.
