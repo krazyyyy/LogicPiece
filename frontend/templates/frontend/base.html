@@ -4,13 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title>LogicPiece: Crafting Digital Excellence</title>
+    <title>LogicPiece: Crafting Digital Excellence | {% block title %} {% endblock %}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="Welcome to LogicPiece - Your gateway to innovative web and mobile applications, automation solutions, social media management, and AI services. Unleash the power of technology with LogicPiece." name="description">
+    {% block meta %}
+
+    {% endblock %}
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <meta name="robots" content="index, follow">
+    <link href="{% static 'frontend/img/fav.jpg' %}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
